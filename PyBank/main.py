@@ -40,9 +40,6 @@ with open(csvpath, newline='') as csvfile:
         dates.append(row[0])
         revenue_change.append(diff_revenue)
 
-        #Add the revenue difference and date to the dictionary
-        #rev_dict[row[0]] = diff_revenue
-
         #update total revenue 
         revenue = revenue + int(row[1])
 
