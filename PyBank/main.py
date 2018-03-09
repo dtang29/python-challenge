@@ -45,7 +45,7 @@ def generate_report(csv, filename):
             previous_rev = int(row[1])
 
 
-        #remove the first and second value from revenue_change and dates since first revenue is not a change in revenue
+        #remove the first from revenue_change and dates since first revenue is not a change in revenue
         revenue_change.pop(0)
         dates.pop(0)
 
@@ -64,7 +64,7 @@ def generate_report(csv, filename):
         #write the results to a new txt file
         with open(output_path, 'w', newline='') as newfile:
 
-            #initialize csv wrtier
+            #initialize csv writer
             csvwriter = csv.writer(newfile, delimiter=',')
 
             csvwriter.writerow(["Financial Analysis"])
@@ -75,6 +75,6 @@ def generate_report(csv, filename):
             csvwriter.writerow(["Greatest Increase in Revenue: " + dates[index_max] + " (" + str(max(revenue_change)) + ")"])
             csvwriter.writerow(["Greatest Decrease in Revenue: " + dates[index_min] + " (" + str(min(revenue_change)) + ")"])
 
-
+#generate the report for the 2 raw files
 generate_report('budget_data_1.csv', 'financial_analysis_1.csv')
 generate_report('budget_data_2.csv', 'financial_analysis_2.csv')
