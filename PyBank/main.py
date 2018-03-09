@@ -72,8 +72,8 @@ def generate_report(csv, filename):
             csvwriter.writerow(["Total Months: " + str(months)])
             csvwriter.writerow(["Total Revenue: $" + str(revenue)])
             csvwriter.writerow(["Average Revenue Change: $" + "{0:.2f}".format(sum(revenue_change) / (months - 1) )])
-            csvwriter.writerow(["Greatest Increase in Revenue: " + dates[index_max] + " (" + str(max(revenue_change)) + ")"])
-            csvwriter.writerow(["Greatest Decrease in Revenue: " + dates[index_min] + " (" + str(min(revenue_change)) + ")"])
+            csvwriter.writerow(["Greatest Increase in Revenue: " + dates[index_max] + " ($" + str(max(revenue_change)) + ")"])
+            csvwriter.writerow(["Greatest Decrease in Revenue: " + dates[index_min] + " ($" + str(min(revenue_change)) + ")"])
 
 #generate the report for the 2 raw files
 generate_report('budget_data_1.csv', 'financial_analysis_1.csv')
