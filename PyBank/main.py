@@ -57,8 +57,8 @@ def generate_report(csv, filename):
         print("Total Months: " + str(months))
         print("Total Revenue: $" + str(revenue))
         print("Average Revenue Change: $" + "{0:.2f}".format(sum(revenue_change) / (months - 1) ))
-        print("Greatest Increase in Revenue: " + dates[index_max] + " (" + str(max(revenue_change)) + ")")
-        print("Greatest Decrease in Revenue: " + dates[index_min] + " (" + str(min(revenue_change)) + ")")
+        print("Greatest Increase in Revenue: " + dates[index_max] + " ($" + str(max(revenue_change)) + ")")
+        print("Greatest Decrease in Revenue: " + dates[index_min] + " ($" + str(min(revenue_change)) + ")")
         print("Your results have been exported to a new text file named " + filename + "! \n")
 
         #write the results to a new txt file
