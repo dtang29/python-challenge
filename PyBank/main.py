@@ -17,6 +17,7 @@ greatest_increase = 0
 #Read in csv file 
 import os
 csvpath = os.path.join('raw_data', 'budget_data_1.csv')
+output_path = os.path.join('raw_data', 'financial_analysis.csv')
 
 import csv
 with open(csvpath, newline='') as csvfile:
@@ -65,3 +66,19 @@ with open(csvpath, newline='') as csvfile:
     print("Average Revenue Change: $" + "{0:.2f}".format(sum(revenue_change) / (months - 1) ))
     print("Greatest Increase in Revenue: " + dates[index_max] + " (" + str(max(revenue_change)) + ")")
     print("Greatest Decrease in Revenue: " + dates[index_min] + " (" + str(min(revenue_change)) + ")")
+
+    #write the results to a new txt file
+    with open(output_path, 'w', newline='') as newfile:
+
+        #initialize csv wrtier
+        csvwriter = csv.writer(newfile, delimiter=',')
+
+        csvwriter.writerow(["Financial Analysis"])
+        csvwriter.writerow(["--------------------------------"])
+        csvwriter.writerow(["Total Months: " + str(months)])
+        csvwriter.writerow(["Total Revenue: $" + str(revenue)])
+        csvwriter.writerow(["Average Revenue Change: $" + "{0:.2f}".format(sum(revenue_change) / (months - 1) )])
+        csvwriter.writerow(["Greatest Increase in Revenue: " + dates[index_max] + " (" + str(max(revenue_change)) + ")"])
+        csvwriter.writerow(["Greatest Decrease in Revenue: " + dates[index_min] + " (" + str(min(revenue_change)) + ")"])
+
+    
